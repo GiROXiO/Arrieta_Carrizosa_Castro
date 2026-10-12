@@ -1,0 +1,14 @@
+# Archivos de respaldo de Quartus / ModelSim
+*.bak
+
+# Temporales de Quartus
+quartus/db/
+quartus/incremental_db/
+quartus/output_files/
+quartus/*.qws
+
+# Temporales y librerías compiladas de ModelSim
+sim/work/
+sim/transcript
+sim/*.wlf
+sim/*.mti
