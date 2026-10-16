@@ -1,14 +1,35 @@
-# Archivos de respaldo de Quartus / ModelSim
+# Archivos de respaldo
 *.bak
 
-# Temporales de Quartus
+# Archivos empaquetados de Quartus
+*.qar
+*.qarlog
+
+# Temporales y carpetas de compilación de Quartus
 quartus/db/
 quartus/incremental_db/
 quartus/output_files/
+quartus/greybox_tmp/
+quartus/slp_sim_tmp/
+
+# Reportes y logs de Quartus
 quartus/*.qws
+quartus/*.rpt
+quartus/*.summary
+quartus/*.smsg
+quartus/*.pin
+quartus/*.jdi
+quartus/*.done
+quartus/*.qdf
 
 # Temporales y librerías compiladas de ModelSim
 sim/work/
 sim/transcript
 sim/*.wlf
 sim/*.mti
+sim/*.mpf
+modelsim.ini
+
+# Archivos del sistema operativo (Opcional pero recomendado)
+.DS_Store
+Thumbs.db
