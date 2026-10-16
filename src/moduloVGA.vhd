@@ -1,10 +1,11 @@
+
 LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.ALL;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
 
 ENTITY moduloVGA IS
     PORT (
-        clk_50mhz : IN std_logic; -- Reloj base de la tarjeta (50 mhz)
+        clk_50Mhz : IN std_logic; -- Reloj base de la tarjeta (50 mhz)
         reset     : IN std_logic; -- Boton de reinicio
         hsync     : OUT std_logic; -- Sincronismo horizontal para el monitor
         vsync     : OUT std_logic; -- Sincronismo vertical para el monitor
@@ -45,22 +46,22 @@ ARCHITECTURE behavioral OF moduloVGA IS
 BEGIN
 
     -- Proceso para dividir el reloj de la fpga a la mitad (25 mhz)
-    PROCESS(clk_50mhz, reset)
+    PROCESS(clk_50Mhz, reset)
     BEGIN
         IF reset = '0' THEN
             pixel_tick <= '0';
-        ELSIF rising_edge(clk_50mhz) THEN
+        ELSIF rising_edge(clk_50Mhz) THEN
             pixel_tick <= NOT pixel_tick; -- Cambia de 0 a 1 constantemente
         END IF;
     END PROCESS;
 
     -- Proceso principal para actualizar los contadores de pantalla
-    PROCESS(clk_50mhz, reset)
+    PROCESS(clk_50Mhz, reset)
     BEGIN
         IF reset = '0' THEN
             h_count <= (OTHERS => '0');
             v_count <= (OTHERS => '0');
-        ELSIF rising_edge(clk_50mhz) THEN
+        ELSIF rising_edge(clk_50Mhz) THEN
             IF pixel_tick = '1' THEN -- Solo avanza cuando el reloj de pixeles esta en 1
                 IF h_count = (h_total - 1) THEN
                     h_count <= (OTHERS => '0'); -- Se acabo la linea, vuelve al inicio
